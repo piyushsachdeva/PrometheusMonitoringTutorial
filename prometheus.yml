@@ -1,0 +1,35 @@
+# Global Config
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: ['<< add your pubic ip>>:9093']
+
+rule_files:
+   - alert_rules.yml
+#to monitor prometheus itself or any other end points
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['<< add your pubic ip>>:9090']
+  - job_name: 'alertmanager'
+    static_configs:
+        - targets: [ '<< add your pubic ip>>:9093' ]
+  - job_name: 'nodeExporter'
+    static_configs:
+        - targets: [ '<< add your pubic ip>>:9100' ]
+  - job_name: 'cadvidor'
+    static_configs:
+        - targets: [ '<< add your pubic ip>>:8085' ]
+  - job_name: 'grafana'
+    static_configs:
+        - targets: [ '<< add your pubic ip>>:3000' ]
+#to monitor your VM/server
+  - job_name: 'Linux_VM1'
+    static_configs:
+    - targets: ['<< add your pubic ip>>:9100']
