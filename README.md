@@ -1,7 +1,7 @@
 # PrometheusMonitoringTutorial
 
 Please make sure to update the configuration files with below details:
-Public IP where your applications are hosted
+        Public IP where your applications are hosted
 to and from email ID to send and receive notification alerts
 smtp hostname
 encrypted username and password for SMTP
